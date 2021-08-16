@@ -8,19 +8,19 @@ import Pager from "../components/Pager"
 
 const BlogList = ({data,pageContext}) => {
     const blogs = data.allStrapiBlogs.edges
-    console.log(blogs)
     return (
         <>
         <Layout>
         <main className="max-w-4xl flex-grow mx-auto flex flex-col justify-around">
         <div className="flex justify-center font-bold text-2xl text-center my-5">
-          <h1>Blog</h1>
+          <h1 className="font-bold italic">Blogs.</h1>
         </div>
       {blogs.map((ele,idx) =>
       {
         return(
           <Link to={`/blogs/${ele.node.slug}`}>
           <Blogcard
+          index={idx}
           heading={ele.node.heading}
           description={ele.node.description.substring(0, 200) + '...'}
           author={ele.node.author}
