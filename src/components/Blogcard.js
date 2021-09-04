@@ -1,9 +1,12 @@
 import React from "react"
+import Img from "gatsby-image/withIEPolyfill"
+import { StaticImage } from "gatsby-plugin-image"
+
 
 
 
 const Blogcard = ({index,heading,description,author,date,imgurl}) => {
-  console.log(heading)
+  console.log(imgurl)
     return (
         <>
         {/* <div class="flex flex-col md:flex-row overflow-hidden
@@ -28,14 +31,14 @@ const Blogcard = ({index,heading,description,author,date,imgurl}) => {
         </div>} */}
       {/* </div> */}
       <div className={index % 2 === 0 ? 'carousel--even' : 'carousel--odd' }>
-        {index % 2 === 0 && <img className="imgBlog" src={imgurl} alt="image"/>}
+        {index % 2 === 0 && <img className="imgBlog" src={imgurl}  alt="image"/>}
         <div class="testimonial">
             <h1 className="mb-3 text-2xl font-bold">{heading}</h1>
             <p className="testimonial-text">{description}</p>
             <p className="testimonial-author">{author}</p>
             <p className="testimonial-job">{date}</p>
         </div>
-        {index % 2 !== 0 && <img className="imgBlog" src={imgurl} alt="image"/>}
+        {index % 2 !== 0 && <img className="imgBlog" src={imgurl}  alt="image"/>}
         
     </div>
         </>

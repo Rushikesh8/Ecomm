@@ -10,7 +10,7 @@ const Pager = ({ pageContext }) => {
         {previousPagePath && (
           <Link to={previousPagePath}>
             
-            <button> ← Previous</button>
+            <button className="teal-bg-color text-white font-bold py-2 px-4 rounded"> ← Previous</button>
           </Link>
         )}
       </div>
@@ -18,7 +18,7 @@ const Pager = ({ pageContext }) => {
       <div className="justify-end">
         {nextPagePath && (
           <Link to={nextPagePath}>
-            <button>Next →</button>
+            <button className="teal-bg-color text-white font-bold py-2 px-4 rounded">Next →</button>
           </Link>
         )}
       </div>

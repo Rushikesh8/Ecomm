@@ -7,7 +7,6 @@ const Blogpage = ({data,pageContext}) =>{
     // const post = data.allStrapiBlogs.edges[0]
     const {markdownRemark} = data
     const {frontmatter,html} = markdownRemark
-    console.log(markdownRemark)
     return (
         <>
         <Layout>

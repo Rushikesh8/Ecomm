@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
         </header> */}
         <Navbar/>
         {children}
-        <footer className="py-10 text-center text-gray-600 text-xs ">
+        <footer className="py-10 text-center text-gray-600 text-xs bg-white border-t-2 border-teal-500">
           &copy; Ecomm 2021
         </footer>
       </div>
