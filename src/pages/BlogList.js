@@ -7,25 +7,26 @@ import Pager from "../components/Pager"
 
 
 const BlogList = ({data,pageContext}) => {
-    const blogs = data.allStrapiBlogs.edges
+    const blogs = data.allMarkdownRemark.edges
+    console.log(data)
     return (
         <>
         <Layout>
-        <main className="max-w-4xl flex-grow mx-auto flex flex-col justify-around">
+        <main className="max-w-4xl flex-grow mx-auto flex flex-col">
         <div className="flex justify-center font-bold text-2xl text-center my-5">
           <h1 className="font-bold italic">Blogs.</h1>
         </div>
       {blogs.map((ele,idx) =>
       {
         return(
-          <Link to={`/blogs/${ele.node.slug}`}>
+          <Link to={`${ele.node.frontmatter.path}`}>
           <Blogcard
           index={idx}
-          heading={ele.node.heading}
-          description={ele.node.description.substring(0, 200) + '...'}
-          author={ele.node.author}
-          date={ele.node.date}
-          imgurl={ele.node.image[0].url}
+          heading={ele.node.frontmatter.heading}
+          description={ele.node.frontmatter.abstract.substring(0, 200) + '...'}
+          author={ele.node.frontmatter.author}
+          date={ele.node.frontmatter.date}
+          imgurl={ele.node.frontmatter.url}
           ></Blogcard></Link>
         )
       } )}
@@ -39,23 +40,47 @@ const BlogList = ({data,pageContext}) => {
 export default BlogList;
 
 
+// export const query = graphql`
+// query ($skip: Int!, $limit: Int!) {
+//   allStrapiBlogs(
+//     skip: $skip,
+//     limit: $limit
+//     ) {
+//     edges {
+//       node {
+//         author
+//         description
+//         slug
+//         date
+//         heading
+//         id
+//         image {
+//           url
+//           name
+//         }
+//       }
+//     }
+//   }
+// }
+
+// `
+
 export const query = graphql`
 query ($skip: Int!, $limit: Int!) {
-  allStrapiBlogs(
-    skip: $skip,
-    limit: $limit
+  allMarkdownRemark
+  (
+       skip: $skip,
+        limit: $limit
     ) {
     edges {
       node {
-        author
-        description
-        slug
-        date
-        heading
-        id
-        image {
+        frontmatter {
+          author
+          path
+          heading
+          abstract
+          date
           url
-          name
         }
       }
     }

@@ -31,15 +31,24 @@ module.exports = {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
       },
     },
+    // {
+    //   resolve: "gatsby-source-strapi",
+    //   options: {
+    //     apiURL: "http://localhost:1337",
+    //     collectionTypes: [
+    //       "Blogs"
+    //     ],
+    //     queryLimit: 1000,
+    //   },
+    // },
     {
-      resolve: "gatsby-source-strapi",
+      resolve: "gatsby-source-filesystem",
       options: {
-        apiURL: "http://localhost:1337",
-        collectionTypes: [
-          "Blogs"
-        ],
-        queryLimit: 1000,
+        name:"blogs",
+        path:`${__dirname}/src/blogs`
+        
       },
     },
+    'gatsby-transformer-remark',
   ],
 }
