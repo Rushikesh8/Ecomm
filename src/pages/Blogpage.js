@@ -61,6 +61,7 @@ query blog($path: String!) {
       title
       date
       url
+      
     }
   }
 }`

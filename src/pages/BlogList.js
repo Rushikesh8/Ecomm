@@ -71,6 +71,7 @@ query ($skip: Int!, $limit: Int!) {
   (
        skip: $skip,
         limit: $limit
+        filter: {fileAbsolutePath: {regex: "/blogs/"  }}
     ) {
     edges {
       node {
@@ -81,6 +82,13 @@ query ($skip: Int!, $limit: Int!) {
           abstract
           date
           url
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }          
         }
       }
     }

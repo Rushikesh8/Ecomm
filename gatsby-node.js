@@ -2,9 +2,14 @@
 const path = require(`path`);
 const { paginate } = require('gatsby-awesome-pagination');
 
+// import {productData} from "./src/components/ProductData"
 
+productData = [
+  {id: 1,slug:'the-catcher-in-the-rye',title:"The Catcher in the Rye",author: "J.D. Salinger"},
+  {id: 2,slug:'mans-search-for-meaning',title:"Man's Search for Meaning",author: "Viktor Frankl"},
+]
 // const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
-//   // Query for nodes to use in creating pages.
+//   // Query for nodes o use in creating pages.
 //   resolve(
 //     graphql(request).then(result => {
 //       if (result.errors) {
@@ -56,24 +61,8 @@ const { paginate } = require('gatsby-awesome-pagination');
 //   // Query for articles nodes to use in creating pages.
 //   return getblogs;
 // };
-const productData = [{
-  id: 1,
-  title: "Cather in the Rye",
-  slug: "cather-in-the-rye",
-  author: "John Doe",
-  price: 499,
-  url: "https://dm-tritiwebsite.s3.ap-south-1.amazonaws.com/2102_i039_027_bank_loan_isometric_e65b925dcb.jpg",
-  description: "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan."
-},
-{
-  id: 2,
-  title: "Man Search for Meaning",
-  slug: "man-search-for-meaning",
-  author: "John Doe",
-  price: 499,
-  url: "https://dm-tritiwebsite.s3.ap-south-1.amazonaws.com/2102_i039_027_bank_loan_isometric_e65b925dcb.jpg",
-  description: "Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan."
-}]
+
+
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
@@ -112,14 +101,59 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {}
     })
   })
-  productData.forEach(ele => {
+  // productData.forEach(ele => {
+  //   paginate({
+  //     createPage,
+  //     items: productData,
+  //     itemsPerPage: 4,
+  //     pathPrefix: '/',
+  //     component: path.resolve('src/pages/index.js')
+  //   });
+  //   createPage({
+  //     path:`/product/${ele.slug}`,
+  //     component: path.resolve(`src/pages/DetailPage.js`),
+  //     context: {
+  //       slug:ele.slug
+  //     }
+
+  //   })
+  // })
+
+
+const productResult = await graphql(`{
+  markdownRemark(frontmatter: {path: {eq: "product/"}}) {
+    frontmatter {
+      product {
+        author
+        slug
+        title
+        id
+      }
+    }
+  }
+}`)
+if (productResult.errors) {
+  reporter.panicOnBuild(`Error while running GraphQL query.`)
+  return
+}
+console.log(productResult.data.markdownRemark.frontmatter.product)
+productResult.data.markdownRemark.frontmatter.product.forEach(ele => {
+  console.log(ele)
+    paginate({
+      createPage,
+      items: productResult.data.markdownRemark.frontmatter.product,
+      itemsPerPage: 4,
+      pathPrefix: '/',
+      component: path.resolve('src/pages/index.js')
+    });
     createPage({
       path:`/product/${ele.slug}`,
       component: path.resolve(`src/pages/DetailPage.js`),
       context: {
-        title : ele.title,
-        author: ele.author
+        slug:ele.slug
       }
+
+
     })
   })
 }

@@ -1,15 +1,16 @@
 import React from 'react'
 
 
-const Card = () => {
+const Card = ({data}) => {
+  const {title,author,slug,category} = data
     return (
         <>
         <div class="flex justify-center items-center">
-  <div class="w- p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all transform duration-500">
+  <div class="w-full p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all transform duration-500">
     <img class="w-64 object-cover rounded-t-md" src="https://images.unsplash.com/photo-1509223197845-458d87318791" alt="" />
     <div class="mt-4">
-      <h1 class="text-2xl font-bold text-gray-700">Zebra succulent</h1>
-      <p class="text-sm mt-2 text-gray-700">Two sizes</p>
+      <h1 class="text-2xl font-bold text-gray-700">{title}</h1>
+      <p class="text-sm mt-2 text-gray-700">{category}</p>
       <div class="mt-3 space-x-4 flex p-1">
         {/* <div class="p-1 border-4 rounded-full cursor-pointer hover:border-green-200 hover:scale-105 transition transform duration-200">
           <span class="block h-6 w-6 bg-green-400 rounded-full"> </span>
