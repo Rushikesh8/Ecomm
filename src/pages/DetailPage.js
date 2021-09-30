@@ -2,20 +2,21 @@ import React from 'react'
 import Layout from "../components/Layout"
 
 
-const productData = [
-  {id: 1,slug:'the-catcher-in-the-rye',title:"The Catcher in the Rye",author: "J.D. Salinger"},
-  {id: 2,slug:'mans-search-for-meaning',title:"Man's Search for Meaning",author: "Viktor Frankl"},
-]
-const DetailPage = ({pageContext}) => {
-   var product = productData.filter(ele => ele.slug == pageContext.slug)[0]
-   console.log(product)
+// const productData = [
+//   {id: 1,slug:'the-catcher-in-the-rye',title:"The Catcher in the Rye",author: "J.D. Salinger"},
+//   {id: 2,slug:'mans-search-for-meaning',title:"Man's Search for Meaning",author: "Viktor Frankl"},
+// ]
+const DetailPage = ({data,pageContext}) => {
+  
+   var product = data.markdownRemark.frontmatter.product.filter(ele => ele.slug == pageContext.slug)[0]
+   
     return (
         <>
         <Layout>
        {product && <section class="text-gray-700 body-font overflow-hidden bg-white">
      <div class="container px-5 py-24 mx-auto">
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg"/>
+      <img alt="ecommerce" class="lg:h-screen lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src={product.url}/>
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
         
         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{product.title}</h1>
@@ -83,7 +84,7 @@ const DetailPage = ({pageContext}) => {
           </div>
         </div>
         <div class="flex">
-          <span class="title-font font-medium text-2xl text-gray-900">$58.00</span>
+          <span class="title-font font-medium text-2xl text-gray-900">&#8377;{product.price}</span>
           <button class="flex ml-auto text-white teal-bg-color border-0 py-2 px-8 font-bold focus:outline-none hover:bg-red-600 rounded">Buy</button>
           {/* <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
             <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -100,3 +101,20 @@ const DetailPage = ({pageContext}) => {
     )
 }
 export default DetailPage;
+
+export const productList = graphql`
+{
+  markdownRemark(frontmatter: {path: {eq: "product/"}}) {
+    frontmatter {
+      product {
+        author
+        slug
+        title
+        id
+        url
+        price
+      }
+    }
+  }
+}
+`

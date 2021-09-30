@@ -15,6 +15,12 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     {
+			resolve: 'gatsby-plugin-snipcart',
+			options: {
+				apiKey: 'NjdmZTA2M2EtMmVkZS00YWJhLWJmMTQtNTY5YmRhM2M2YWZkNjM3Njg1OTk3MjM5OTgwMDU1'
+			}
+		},
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "Ecomm",
@@ -64,6 +70,7 @@ module.exports = {
         path:`${__dirname}/src/images`
         
       },
+      
     },
     'gatsby-transformer-remark',
     `gatsby-plugin-sharp`,

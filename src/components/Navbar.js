@@ -47,8 +47,8 @@ const Navbar = () => {
                 <div class="flex flex-col md:flex-row md:mx-6">
                    <Link to="#"><p class="my-1 text-base font-semibold text-gray-700  hover:text-teal-500 dark:hover:text-indigo-400 md:mx-4 md:my-0">Home</p></Link> 
                   <Link to="/blogs"> <p class="my-1 text-base font-semibold text-gray-700 hover:text-teal-500 dark:hover:text-indigo-400 md:mx-4 md:my-0" >Blogs</p></Link> 
-                  <Link to="#"><p class="my-1 text-base font-semibold text-gray-700  hover:text-teal-500 dark:hover:text-indigo-400 md:mx-4 md:my-0" >Contact</p></Link> 
-                  <Link to="#"><p class="my-1 text-base font-semibold text-gray-700  hover:text-teal-500 dark:hover:text-indigo-400 md:mx-4 md:my-0" >About</p></Link> 
+                  {/* <Link to="#"><p class="my-1 text-base font-semibold text-gray-700  hover:text-teal-500 dark:hover:text-indigo-400 md:mx-4 md:my-0" >Contact</p></Link> 
+                  <Link to="#"><p class="my-1 text-base font-semibold text-gray-700  hover:text-teal-500 dark:hover:text-indigo-400 md:mx-4 md:my-0" >About</p></Link>  */}
                 </div>
 
                 <div class="flex justify-center md:block">
