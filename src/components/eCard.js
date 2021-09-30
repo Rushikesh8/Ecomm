@@ -7,7 +7,7 @@ const Card = ({data}) => {
         <>
         <div class="flex justify-center items-center">
   <div class="w-full p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all transform duration-500">
-    <img class="w-64 object-cover rounded-t-md" src="https://images.unsplash.com/photo-1509223197845-458d87318791" alt="" />
+    <img class="w-full object-cover rounded-t-md" src="https://images.unsplash.com/photo-1509223197845-458d87318791" alt="" />
     <div class="mt-4">
       <h1 class="text-2xl font-bold text-gray-700">{title}</h1>
       <p class="text-sm mt-2 text-gray-700">{category}</p>
