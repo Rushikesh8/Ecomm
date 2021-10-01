@@ -15,9 +15,10 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     {
-			resolve: 'gatsby-plugin-snipcart',
+			resolve: 'gatsby-plugin-snipcartv3',
 			options: {
-				apiKey: 'NjdmZTA2M2EtMmVkZS00YWJhLWJmMTQtNTY5YmRhM2M2YWZkNjM3Njg1OTk3MjM5OTgwMDU1'
+				apiKey: 'NjdmZTA2M2EtMmVkZS00YWJhLWJmMTQtNTY5YmRhM2M2YWZkNjM3Njg1OTk3MjM5OTgwMDU1',
+        autopop: true,
 			}
 		},
     {

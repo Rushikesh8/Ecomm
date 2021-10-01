@@ -26,10 +26,11 @@ const Card = ({data}) => {
       </div>
       <div class="mt-4 mb-2 flex justify-between items-center">
         <button class="block text-xl font-semibold text-gray-700 cursor-auto">&#8377;{price}</button>
-        <button class="text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white teal-bg-color rounded-lg shadow hover:shadow-md transition duration-300"
+        <button class="text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white teal-bg-color rounded-lg shadow hover:shadow-md transition duration-300 snipcart-add-item"
           data-item-id={id}
           data-item-name={title}
-          data-item-url="/"
+          data-item-image={url}
+          data-item-url={"/"}
           data-item-price={price}>Buy</button>
       </div>
     </div>

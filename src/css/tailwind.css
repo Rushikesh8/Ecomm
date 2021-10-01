@@ -110,3 +110,8 @@
 .teal-bg-color {
     background-color: #087F5B;
 }
+
+.snipcart-cart-button--secondary {
+    color: white;
+    background-color: #087F5B;
+}

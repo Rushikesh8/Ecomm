@@ -19,7 +19,7 @@ export default ({data,pageContext}) => {
         <h1 className="font-bold italic text-3xl text-green-600 text-center my-5">Welcome to the Ecomm Shop</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mx-8 md:mx-0">
           {data.allMarkdownRemark.edges[0].node.frontmatter.product.map(ele => <Link to={`product/${ele.slug}`}><Card data={ele}></Card></Link>)}
-
+        
         </div>
         {/* <ProductList pageContext={pageContext}/> */}
         <Pager pageContext={pageContext}/>
