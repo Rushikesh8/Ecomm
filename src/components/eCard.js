@@ -9,7 +9,9 @@ const Card = ({data}) => {
         <>
         <div class="flex justify-center items-center">
   <div class="w-full h-full p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all transform duration-500">
-    <div className="h-auto"><img class="card-img-top  rounded-t-md" src={url} alt=""/></div>
+    {/* <div className="h-auto"> */}
+      <img class="card-img-top  rounded-t-md" src={url} alt=""/>
+      {/* </div> */}
     <div class="mt-4">
       <h1 class="text-2xl font-bold text-gray-700 h-16">{title}</h1>
       <p class="text-sm mt-2 text-gray-700">{category}</p>

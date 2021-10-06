@@ -85,7 +85,7 @@ const DetailPage = ({data,pageContext}) => {
         </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900">&#8377;{product.price}</span>
-          <button class="flex ml-auto text-white teal-bg-color border-0 py-2 px-8 font-bold focus:outline-none hover:bg-red-600 rounded"
+          <button class="flex ml-auto text-white teal-bg-color border-0 py-2 px-8 font-bold focus:outline-none hover:bg-red-600 rounded snipcart-add-item"
           data-item-id={product.id}
           data-item-name={product.title}
           data-item-image={product.url}
