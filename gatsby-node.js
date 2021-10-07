@@ -93,12 +93,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               items: result.data.allMarkdownRemark.edges,
               itemsPerPage: 3,
               pathPrefix: '/blogs',
-              component: path.resolve('src/pages/BlogList.js')
+              component: path.resolve('src/components/Bloglisting.js')
             });
     createPage({
       path: node.frontmatter.path,
-      component: path.resolve(`src/pages/Blogpage.js`),
-      context: {}
+      component: path.resolve(`src/components/Blogpage.js`),
+      context: {
+        path: node.frontmatter.path
+      }
     })
   })
   // productData.forEach(ele => {
