@@ -70,7 +70,7 @@ query ($skip: Int!, $limit: Int!) {
   allMarkdownRemark
   (
        skip: $skip,
-        limit: $limit
+        limit: $limit,
         filter: {fileAbsolutePath: {regex: "/blogs/"  }}
     ) {
     edges {
