@@ -8,7 +8,7 @@ import Pager from "../components/Pager"
 
 const BlogList = ({data,pageContext}) => {
     const blogs = data.allMarkdownRemark.edges
-    console.log(data)
+    console.log(pageContext)
     return (
         <>
         <Layout>

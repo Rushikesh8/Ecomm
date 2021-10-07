@@ -29,7 +29,7 @@ module.exports = {
         start_url: "/",
         background_color: theme.colors.white,
         theme_color: theme.colors.teal[500],
-        icon: "static/cart.png",
+        icon: "static/carticon.svg",
       },
     },
     {
