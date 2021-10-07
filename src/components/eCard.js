@@ -3,8 +3,6 @@ import React from 'react'
 
 const Card = ({data}) => {
   const {title,author,slug,category,price,url,id} = data
-  console.log(price)
-  const product_url = "product/" + slug
     return (
         <>
         <div class="flex justify-center items-center">
